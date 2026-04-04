@@ -16,6 +16,63 @@ This project demonstrates practical SOC analyst and detection engineering skills
 
 ---
 
+## ⚡ Quick Start (Run in Minutes)
+
+Follow these steps to run the SOC pipeline locally:
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/jayvpatel75/soc-threat-detection-lab.git
+cd soc-threat-detection-lab
+```
+
+### 2. Create and activate virtual environment
+
+```bash
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure environment variables
+
+Create a `.env` file using `.env.example` and add your VirusTotal API key:
+
+```env
+VT_API_KEY=your_api_key_here
+```
+
+## ⚡ Run the SOC Pipeline
+
+```bash
+python src/run_pipeline.py
+```
+
+### 🔍 Sample Output
+
+## 📸 Screenshots
+
+### SOC Pipeline Execution
+![Pipeline](Screenshots/pipeline-run.png)
+
+### Incident Report
+![Incident](Screenshots/incident-report.png)
+
+---
+
+### ✅ Expected Result
+
+* Brute force attacks detected
+* Port scan activity identified
+* Alerts enriched with threat intelligence
+* Incident reports generated automatically
+
 ## 🧠 Architecture
 
 Raw Logs → Parser → Normalized Events → Detection Rules → Threat Intelligence → Alerts → Incident Reports
@@ -53,29 +110,6 @@ soc-threat-detection-lab/
 ├── .gitignore
 ├── requirements.txt
 └── README.md
-```
-
----
-
-## ⚡ Run the SOC Pipeline
-
-```bash
-python src/run_pipeline.py
-```
-
-### 🔍 Sample Output
-
-```
-SOC Threat Detection Lab - One-Click Pipeline
-[*] Parsing auth logs...
-[*] Running brute force detection...
-[+] Auth pipeline complete: 2 alert(s), 2 incident report(s)
-
-[*] Parsing network logs...
-[*] Running port scan detection...
-[+] Network pipeline complete: 2 alert(s)
-
-[+] Pipeline finished successfully
 ```
 
 ---
@@ -163,16 +197,6 @@ Automatically generates SOC-style reports:
 * Threat intelligence enrichment
 * Automated incident reporting
 * One-click SOC pipeline execution
-
----
-
-## 📸 Screenshots
-
-### SOC Pipeline Execution
-![Pipeline](Screenshots/pipeline-run.png)
-
-### Incident Report
-![Incident](Screenshots/incident-report.png)
 
 ---
 
