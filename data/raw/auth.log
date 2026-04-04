@@ -1,0 +1,8 @@
+Mar 28 10:15:42 server01 sshd[1234]: Failed password for invalid user admin from 192.168.1.50 port 51422 ssh2
+Mar 28 10:16:01 server01 sshd[1235]: Failed password for root from 192.168.1.50 port 51423 ssh2
+Mar 28 10:16:15 server01 sshd[1236]: Accepted password for user1 from 192.168.1.100 port 51424 ssh2
+Mar 28 10:17:10 server01 sshd[1237]: Failed password for invalid user test from 10.0.0.5 port 40022 ssh2
+Mar 28 10:18:55 server01 sshd[1238]: Failed password for root from 10.0.0.5 port 40023 ssh2pip install pandas requests python-dotenv rich pytest
+Mar 28 10:19:01 server01 sshd[1240]: Failed password for root from 192.168.1.50 port 51430 ssh2
+Mar 28 10:19:10 server01 sshd[1241]: Failed password for root from 192.168.1.50 port 51431 ssh2
+Mar 28 10:19:20 server01 sshd[1242]: Failed password for root from 192.168.1.50 port 51432 ssh2

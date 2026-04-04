@@ -1,3 +1,4 @@
+HEAD
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -205,3 +206,15 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+.venv/
+__pycache__/
+*.pyc
+.env
+.DS_Store
+
+# Optional: keep generated outputs out of GitHub
+data/processed/
+detections/
+reports/
+74aa3f3 (Initial commit - SOC Threat Detection Lab)

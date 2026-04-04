@@ -1,0 +1,16 @@
+Mar 28 11:00:01 firewall01 kernel: Connection attempt from 192.168.1.200 to port 22
+Mar 28 11:00:02 firewall01 kernel: Connection attempt from 192.168.1.200 to port 23
+Mar 28 11:00:03 firewall01 kernel: Connection attempt from 192.168.1.200 to port 80
+Mar 28 11:00:04 firewall01 kernel: Connection attempt from 192.168.1.200 to port 443
+Mar 28 11:00:05 firewall01 kernel: Connection attempt from 192.168.1.200 to port 3389
+Mar 28 11:00:06 firewall01 kernel: Connection attempt from 192.168.1.200 to port 21
+Mar 28 11:00:07 firewall01 kernel: Connection attempt from 192.168.1.200 to port 25
+Mar 28 11:00:08 firewall01 kernel: Connection attempt from 192.168.1.200 to port 110
+Mar 28 12:21:11 firewall01 kernel: Connection attempt from 192.168.22.12 to port 21
+Mar 28 12:21:11 firewall01 kernel: Connection attempt from 192.168.22.12 to port 22
+Mar 28 12:21:11 firewall01 kernel: Connection attempt from 192.168.22.12 to port 23
+Mar 28 12:21:11 firewall01 kernel: Connection attempt from 192.168.22.12 to port 25
+Mar 28 12:21:12 firewall01 kernel: Connection attempt from 192.168.22.12 to port 80
+Mar 28 12:21:13 firewall01 kernel: Connection attempt from 192.168.22.12 to port 110
+Mar 28 12:21:13 firewall01 kernel: Connection attempt from 192.168.22.12 to port 443
+Mar 28 12:21:14 firewall01 kernel: Connection attempt from 192.168.22.12 to port 3389
