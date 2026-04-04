@@ -166,6 +166,16 @@ Automatically generates SOC-style reports:
 
 ---
 
+## 📸 Screenshots
+
+### SOC Pipeline Execution
+![Pipeline](Screenshots/pipeline-run.png)
+
+### Incident Report
+![Incident](Screenshots/incident-report.png)
+
+---
+
 ## 💼 Resume Value
 
 This project demonstrates:
