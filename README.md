@@ -48,7 +48,9 @@ soc-threat-detection-lab/
 │   ├── portscan_detector.py
 │   ├── report.py
 │   └── run_pipeline.py
+├── Screenshots/            # Demo screenshots
 ├── .env.example
+├── .gitignore
 ├── requirements.txt
 └── README.md
 ```
