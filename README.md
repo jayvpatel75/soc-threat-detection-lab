@@ -1,10 +1,28 @@
 # SOC Threat Detection Lab (Python | SIEM-Style Detection Engineering)
 
-A hands-on Security Operations Center (SOC) lab built in Python that simulates real-world workflows including log ingestion, detection engineering, threat intelligence enrichment, alerting, and incident reporting.
+Simulates a real-world SOC pipeline to detect and analyze brute force attacks and port scanning using Python-based detection engineering, threat intelligence enrichment, and automated incident reporting.
 
 ---
 
-## 🚀 Overview
+## Quick Demo
+
+Run the entire SOC pipeline:
+
+```bash
+python src/run_pipeline.py
+
+### Example Output
+
+SOC Threat Detection Lab - One-Click Pipeline
+[*] Parsing auth logs...
+[*] Running brute force detection...
+[+] Auth pipeline complete: 2 alert(s), 2 incident report(s)
+[*] Parsing network logs...
+[*] Running port scan detection...
+[+] Network pipeline complete: 2 alert(s)
+[+] Pipeline finished successfully
+
+## Overview
 
 This project demonstrates practical SOC analyst and detection engineering skills by building an end-to-end pipeline that:
 
@@ -16,7 +34,91 @@ This project demonstrates practical SOC analyst and detection engineering skills
 
 ---
 
-## ⚡ Quick Start (Run in Minutes)
+## Why This Project
+
+This project was built to simulate real-world SOC operations and demonstrate hands-on experience in:
+
+- Detecting malicious activity from raw logs  
+- Correlating events using time-based detection rules  
+- Enriching alerts with external threat intelligence  
+- Generating actionable incident reports  
+
+It reflects the workflow used in real SIEM platforms like Splunk and Microsoft Sentinel.
+
+## Screenshots
+
+### SOC Pipeline Execution
+![Pipeline](screenshots/pipeline-run.png)
+
+### Incident Report Output
+![Incident](screenshots/incident-report.png)
+
+---
+
+## Key Skills Demonstrated
+
+- Security Operations Center (SOC) workflows  
+- Detection engineering (rule-based detection)  
+- Log parsing and normalization  
+- Threat intelligence enrichment (VirusTotal API)  
+- Incident analysis and reporting  
+- Security automation using Python  
+- Attack simulation using Kali Linux (Nmap)
+
+---
+
+## ⭐ Project Highlights
+
+- Built a SOC-style detection pipeline from scratch  
+- Implemented brute force and port scan detection rules  
+- Integrated VirusTotal API for threat intelligence  
+- Automated full workflow with a single command  
+- Simulated real-world attacks using Kali Linux
+
+---
+
+## 🧠 Architecture
+
+Raw Logs → Parser (Normalization) → Detection Engine (Brute Force / Port Scan) → Threat Intelligence Enrichment (VirusTotal) → Alerts → Incident Reports
+
+---
+
+## ⚙️ Tech Stack
+
+* Python 3.11+
+* Requests (API integration)
+* Python-dotenv (secure API key handling)
+* VirusTotal API
+* JSON (event storage & alerts)
+
+---
+
+## 📂 Project Structure
+
+```
+soc-threat-detection-lab/
+├── data/
+│   ├── raw/                # Input logs
+│   └── processed/          # Parsed logs
+├── detections/             # Detection outputs
+├── reports/                # Incident reports
+├── src/
+│   ├── parser.py
+│   ├── detector.py
+│   ├── enrich.py
+│   ├── portscan_detector.py
+│   ├── report.py
+│   └── run_pipeline.py
+├── Screenshots/            # Demo screenshots
+├── .env.example
+├── .gitignore
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## Quick Start
 
 Follow these steps to run the SOC pipeline locally:
 
@@ -73,44 +175,19 @@ python src/run_pipeline.py
 * Alerts enriched with threat intelligence
 * Incident reports generated automatically
 
-## 🧠 Architecture
-
-Raw Logs → Parser → Normalized Events → Detection Rules → Threat Intelligence → Alerts → Incident Reports
-
 ---
 
-## ⚙️ Tech Stack
+## 🔍 Detection Logic
 
-* Python 3.11+
-* Requests (API integration)
-* Python-dotenv (secure API key handling)
-* VirusTotal API
-* JSON (event storage & alerts)
+### Brute Force Detection
+- Tracks failed login attempts per IP
+- Uses sliding time window correlation
+- Detects abnormal authentication patterns
 
----
-
-## 📂 Project Structure
-
-```
-soc-threat-detection-lab/
-├── data/
-│   ├── raw/                # Input logs
-│   └── processed/          # Parsed logs
-├── detections/             # Detection outputs
-├── reports/                # Incident reports
-├── src/
-│   ├── parser.py
-│   ├── detector.py
-│   ├── enrich.py
-│   ├── portscan_detector.py
-│   ├── report.py
-│   └── run_pipeline.py
-├── Screenshots/            # Demo screenshots
-├── .env.example
-├── .gitignore
-├── requirements.txt
-└── README.md
-```
+### Port Scan Detection
+- Tracks unique ports accessed per IP
+- Identifies reconnaissance behavior
+- Uses threshold-based detection within time window
 
 ---
 
