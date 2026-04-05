@@ -4,15 +4,17 @@ Simulates a real-world SOC pipeline to detect and analyze brute force attacks an
 
 ---
 
-## Quick Demo
+## 🚀 Quick Demo
 
 Run the entire SOC pipeline:
 
 ```bash
 python src/run_pipeline.py
+```
 
 ### Example Output
 
+```text
 SOC Threat Detection Lab - One-Click Pipeline
 [*] Parsing auth logs...
 [*] Running brute force detection...
@@ -21,6 +23,9 @@ SOC Threat Detection Lab - One-Click Pipeline
 [*] Running port scan detection...
 [+] Network pipeline complete: 2 alert(s)
 [+] Pipeline finished successfully
+```
+
+---
 
 ## Overview
 
@@ -34,52 +39,68 @@ This project demonstrates practical SOC analyst and detection engineering skills
 
 ---
 
-## Why This Project
+## 🎯 Why This Project
 
 This project was built to simulate real-world SOC operations and demonstrate hands-on experience in:
 
-- Detecting malicious activity from raw logs  
-- Correlating events using time-based detection rules  
-- Enriching alerts with external threat intelligence  
-- Generating actionable incident reports  
+* Detecting malicious activity from raw logs
+* Correlating events using time-based detection rules
+* Enriching alerts with external threat intelligence
+* Generating actionable incident reports
 
 It reflects the workflow used in real SIEM platforms like Splunk and Microsoft Sentinel.
 
-## Screenshots
+---
+
+## 📸 Screenshots
 
 ### SOC Pipeline Execution
+
 ![Pipeline](screenshots/pipeline-run.png)
 
 ### Incident Report Output
+
 ![Incident](screenshots/incident-report.png)
 
 ---
 
-## Key Skills Demonstrated
+## 💼 Key Skills Demonstrated
 
-- Security Operations Center (SOC) workflows  
-- Detection engineering (rule-based detection)  
-- Log parsing and normalization  
-- Threat intelligence enrichment (VirusTotal API)  
-- Incident analysis and reporting  
-- Security automation using Python  
-- Attack simulation using Kali Linux (Nmap)
+* Security Operations Center (SOC) workflows
+* Detection engineering (rule-based detection)
+* Log parsing and normalization
+* Threat intelligence enrichment (VirusTotal API)
+* Incident analysis and reporting
+* Security automation using Python
+* Attack simulation using Kali Linux (Nmap)
 
 ---
 
 ## ⭐ Project Highlights
 
-- Built a SOC-style detection pipeline from scratch  
-- Implemented brute force and port scan detection rules  
-- Integrated VirusTotal API for threat intelligence  
-- Automated full workflow with a single command  
-- Simulated real-world attacks using Kali Linux
+* Built a SOC-style detection pipeline from scratch
+* Implemented brute force and port scan detection rules
+* Integrated VirusTotal API for threat intelligence
+* Automated full workflow with a single command
+* Simulated real-world attacks using Kali Linux
 
 ---
 
 ## 🧠 Architecture
 
-Raw Logs → Parser (Normalization) → Detection Engine (Brute Force / Port Scan) → Threat Intelligence Enrichment (VirusTotal) → Alerts → Incident Reports
+```
+Raw Logs  
+   ↓  
+Parser (Normalization)  
+   ↓  
+Detection Engine (Brute Force / Port Scan)  
+   ↓  
+Threat Intelligence Enrichment (VirusTotal)  
+   ↓  
+Alerts  
+   ↓  
+Incident Reports  
+```
 
 ---
 
@@ -98,10 +119,10 @@ Raw Logs → Parser (Normalization) → Detection Engine (Brute Force / Port Sca
 ```
 soc-threat-detection-lab/
 ├── data/
-│   ├── raw/                # Input logs
-│   └── processed/          # Parsed logs
-├── detections/             # Detection outputs
-├── reports/                # Incident reports
+│   ├── raw/
+│   └── processed/
+├── detections/
+├── reports/
 ├── src/
 │   ├── parser.py
 │   ├── detector.py
@@ -109,7 +130,7 @@ soc-threat-detection-lab/
 │   ├── portscan_detector.py
 │   ├── report.py
 │   └── run_pipeline.py
-├── Screenshots/            # Demo screenshots
+├── screenshots/
 ├── .env.example
 ├── .gitignore
 ├── requirements.txt
@@ -118,9 +139,7 @@ soc-threat-detection-lab/
 
 ---
 
-## Quick Start
-
-Follow these steps to run the SOC pipeline locally:
+## ⚡ Quick Start
 
 ### 1. Clone the repository
 
@@ -144,60 +163,39 @@ pip install -r requirements.txt
 
 ### 4. Configure environment variables
 
-Create a `.env` file using `.env.example` and add your VirusTotal API key:
+Create a `.env` file from `.env.example`:
 
 ```env
 VT_API_KEY=your_api_key_here
 ```
 
-## ⚡ Run the SOC Pipeline
+### 5. Run the pipeline
 
 ```bash
 python src/run_pipeline.py
 ```
-
-### 🔍 Sample Output
-
-## 📸 Screenshots
-
-### SOC Pipeline Execution
-![Pipeline](Screenshots/pipeline-run.png)
-
-### Incident Report
-![Incident](Screenshots/incident-report.png)
-
----
-
-### ✅ Expected Result
-
-* Brute force attacks detected
-* Port scan activity identified
-* Alerts enriched with threat intelligence
-* Incident reports generated automatically
 
 ---
 
 ## 🔍 Detection Logic
 
 ### Brute Force Detection
-- Tracks failed login attempts per IP
-- Uses sliding time window correlation
-- Detects abnormal authentication patterns
+
+* Tracks failed login attempts per IP
+* Uses sliding time window correlation
+* Detects abnormal authentication patterns
 
 ### Port Scan Detection
-- Tracks unique ports accessed per IP
-- Identifies reconnaissance behavior
-- Uses threshold-based detection within time window
+
+* Tracks unique ports accessed per IP
+* Identifies reconnaissance behavior
+* Uses threshold-based detection within time window
 
 ---
 
 ## 🔐 Detection Capabilities
 
-### 1. Brute Force Detection
-
-* Detects repeated failed login attempts
-* Uses sliding time window correlation
-* Enriched with threat intelligence
+### Brute Force Detection
 
 ```json
 {
@@ -210,12 +208,7 @@ python src/run_pipeline.py
 }
 ```
 
----
-
-### 2. Port Scan Detection
-
-* Detects reconnaissance activity (Nmap-style scans)
-* Tracks unique ports accessed within a time window
+### Port Scan Detection
 
 ```json
 {
@@ -228,8 +221,6 @@ python src/run_pipeline.py
 ---
 
 ## 🧾 Incident Reporting
-
-Automatically generates SOC-style reports:
 
 ```json
 {
@@ -302,5 +293,3 @@ This project is intended for educational and defensive security purposes only.
 * Dashboard (Streamlit)
 * Windows Event Log support
 * Additional detection rules
-
----
