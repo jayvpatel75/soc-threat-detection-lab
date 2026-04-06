@@ -1,6 +1,6 @@
 # SOC Threat Detection Lab (Python | SIEM-Style Detection Engineering)
 
-Simulates a real-world SOC pipeline to detect and analyze brute force attacks and port scanning using Python-based detection engineering, threat intelligence enrichment, and automated incident reporting.
+Simulates a real-world Security Operations Center (SOC) pipeline to detect and analyze brute force attacks and port scanning using Python-based detection engineering, threat intelligence enrichment, SIEM integration (Splunk), and real-time alerting.
 
 ---
 
@@ -27,28 +27,16 @@ SOC Threat Detection Lab - One-Click Pipeline
 
 ---
 
-## Overview
+## 📊 SOC Dashboard (Splunk)
 
-This project demonstrates practical SOC analyst and detection engineering skills by building an end-to-end pipeline that:
+![Dashboard](screenshots/dashboard.png)
 
-* Parses and normalizes raw security logs
-* Detects brute force attacks and port scanning activity
-* Enriches alerts using VirusTotal threat intelligence
-* Generates structured incident reports
-* Automates the entire workflow with a single command
+👉 Built using Splunk SIEM to visualize:
 
----
-
-## 🎯 Why This Project
-
-This project was built to simulate real-world SOC operations and demonstrate hands-on experience in:
-
-* Detecting malicious activity from raw logs
-* Correlating events using time-based detection rules
-* Enriching alerts with external threat intelligence
-* Generating actionable incident reports
-
-It reflects the workflow used in real SIEM platforms like Splunk and Microsoft Sentinel.
+* Brute force attacks
+* Port scanning activity
+* Top attacker IPs
+* Login activity trends
 
 ---
 
@@ -64,25 +52,18 @@ It reflects the workflow used in real SIEM platforms like Splunk and Microsoft S
 
 ---
 
-## 💼 Key Skills Demonstrated
+## 🎯 Overview
 
-* Security Operations Center (SOC) workflows
-* Detection engineering (rule-based detection)
-* Log parsing and normalization
-* Threat intelligence enrichment (VirusTotal API)
-* Incident analysis and reporting
-* Security automation using Python
-* Attack simulation using Kali Linux (Nmap)
+This project demonstrates practical SOC analyst and detection engineering skills by building an end-to-end pipeline that:
 
----
-
-## ⭐ Project Highlights
-
-* Built a SOC-style detection pipeline from scratch
-* Implemented brute force and port scan detection rules
-* Integrated VirusTotal API for threat intelligence
-* Automated full workflow with a single command
-* Simulated real-world attacks using Kali Linux
+* Parses and normalizes raw security logs
+* Detects brute force attacks and port scanning activity
+* Enriches alerts using VirusTotal threat intelligence
+* Sends real-time alerts via Slack webhooks
+* Maps detections to MITRE ATT&CK techniques
+* Generates structured incident reports
+* Visualizes data using Splunk dashboards
+* Automates the entire workflow with a single command
 
 ---
 
@@ -97,19 +78,50 @@ Detection Engine (Brute Force / Port Scan)
    ↓  
 Threat Intelligence Enrichment (VirusTotal)  
    ↓  
-Alerts  
+Alerting (Slack Webhooks)  
+   ↓  
+SIEM Visualization (Splunk Dashboard)  
    ↓  
 Incident Reports  
 ```
 
 ---
 
+## 💼 Key Skills Demonstrated
+
+* Security Operations Center (SOC) workflows
+* Detection engineering (rule-based detection)
+* Log parsing and normalization
+* Threat intelligence enrichment (VirusTotal API)
+* MITRE ATT&CK mapping (T1110, T1046)
+* SIEM usage (Splunk SPL queries & dashboards)
+* Real-time alerting (Slack Webhooks)
+* Incident analysis and reporting
+* Security automation using Python
+* Attack simulation using Kali Linux (Nmap)
+
+---
+
+## ⭐ Project Highlights
+
+* Built a SOC-style detection pipeline from scratch
+* Implemented brute force and port scan detection using sliding-window correlation
+* Integrated VirusTotal API for threat intelligence enrichment
+* Added real-time alerting using Slack webhooks
+* Mapped detections to MITRE ATT&CK techniques
+* Created Splunk dashboard for visualization and monitoring
+* Simulated real-world attacks using Kali Linux
+
+---
+
 ## ⚙️ Tech Stack
 
 * Python 3.11+
-* Requests (API integration)
-* Python-dotenv (secure API key handling)
+* Requests
+* python-dotenv
 * VirusTotal API
+* Slack Webhooks
+* Splunk (SIEM)
 * JSON (event storage & alerts)
 
 ---
@@ -129,6 +141,7 @@ soc-threat-detection-lab/
 │   ├── enrich.py
 │   ├── portscan_detector.py
 │   ├── report.py
+│   ├── alerting.py
 │   └── run_pipeline.py
 ├── screenshots/
 ├── .env.example
@@ -167,6 +180,7 @@ Create a `.env` file from `.env.example`:
 
 ```env
 VT_API_KEY=your_api_key_here
+SLACK_WEBHOOK_URL=your_webhook_url_here
 ```
 
 ### 5. Run the pipeline
@@ -179,13 +193,13 @@ python src/run_pipeline.py
 
 ## 🔍 Detection Logic
 
-### Brute Force Detection
+### Brute Force Detection (MITRE T1110)
 
 * Tracks failed login attempts per IP
 * Uses sliding time window correlation
 * Detects abnormal authentication patterns
 
-### Port Scan Detection
+### Port Scan Detection (MITRE T1046)
 
 * Tracks unique ports accessed per IP
 * Identifies reconnaissance behavior
@@ -202,6 +216,7 @@ python src/run_pipeline.py
   "source_ip": "192.168.1.50",
   "failed_attempts": 5,
   "severity": "high",
+  "mitre": "T1110",
   "threat_intel": {
     "malicious": 1
   }
@@ -214,7 +229,8 @@ python src/run_pipeline.py
 {
   "source_ip": "192.168.1.200",
   "unique_ports": 8,
-  "severity": "high"
+  "severity": "high",
+  "mitre": "T1046"
 }
 ```
 
@@ -251,18 +267,20 @@ python src/run_pipeline.py
 
 ## 🧪 Attack Simulation
 
-* Simulated brute force attacks via auth logs
-* Simulated real port scans using Kali Linux (`nmap`)
-* Validated detections against realistic attack patterns
+* Simulated brute force attacks via authentication logs
+* Simulated port scanning using Kali Linux (`nmap`)
+* Validated detection logic against realistic attack scenarios
 
 ---
 
 ## 🔥 Key Features
 
-* Log normalization and parsing (multi-source)
+* Multi-source log ingestion and normalization
 * Detection engineering with sliding window logic
 * Alert deduplication and correlation
 * Threat intelligence enrichment
+* Real-time Slack alerting
+* Splunk SIEM integration and dashboard visualization
 * Automated incident reporting
 * One-click SOC pipeline execution
 
@@ -275,6 +293,7 @@ This project demonstrates:
 * SOC workflow understanding
 * Detection rule development
 * Threat intelligence integration
+* SIEM usage (Splunk)
 * Incident analysis and reporting
 * Security automation using Python
 
@@ -288,8 +307,8 @@ This project is intended for educational and defensive security purposes only.
 
 ## 🚀 Future Improvements
 
-* Slack / Email alerting
-* SIEM integration (Splunk / ELK)
-* Dashboard (Streamlit)
-* Windows Event Log support
-* Additional detection rules
+* Email alerting integration
+* Advanced SIEM correlation rules
+* Streamlit dashboard
+* Windows Event Log ingestion
+* Additional detection rules (lateral movement, persistence)
